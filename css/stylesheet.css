@@ -1,0 +1,21 @@
+#s {
+  width: 75%;
+    height: 40px;
+    border: 1px solid black;
+    margin: 0 auto;
+    box-shadow: $shadow;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+#submit {
+    margin: 0 auto;
+    border-radius: 8px;
+    height: 32px;
+}
+
+#submit:hover {
+    background: #209cee;
+    transition: background-color .5s ease;
+}
