@@ -75,12 +75,18 @@
                         </h2>
                         <div class="box">
 
-                                <form id="contactForm1" action="https://us-central1-keen-nth-poc.cloudfunctions.net/function-anthem-dupe"  method="POST">
-                                  <input type="text" id="s" placeholder="Feedback..">
-                                  <input id="submit" type="submit" value="send">
-                                </form>
-
-                                <div id="thankyou" style="display:none"><p>Thank you for your Feedback!</p></div>
+                          <div class="field is-grouped">
+                              <p class="control is-expanded">
+                                  <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
+                              </p>
+                              <p class="control">
+                                  <a id="submitButton" class="button is-info" id="submitButton">
+                                      Send Feedback
+                                  </a>
+                              </p>
+                          </div>
+                          <div id="errornote" style="display:none"><p>Oops got an error, check your console logs!</p></div>
+                          <div id="thankyou" style="display:none"><p>Thank you for your Feedback!</p></div>
                         </div>
                     </div>
                 </div>
@@ -100,30 +106,33 @@
         // Record events automatically
         client.initAutoTracking();
       });
-      // Tracking Form Event
-      var frm = $('#contactForm1');
-      frm.submit(function (e) {
-        e.preventDefault();
+
+      $('#submitButton').click(function(){ SubmitFeedback(); return false; });
+
+      // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
+      var SubmitFeedback = function() {
         $.ajax({
             type: "POST",
             url: "https://us-central1-keen-nth-poc.cloudfunctions.net/function-anthem-dupe",
-            data: JSON.stringify({ review_text: $('#s').val() }),
+            data: JSON.stringify({ review_text: $('#feedbackText').val() }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(data){alert(data);},
-            failure: function(errMsg) {
-                alert(errMsg);
+            // log a success if it sends as expected
+            success: function(data){
+              $("#thankyou").show();
+              $("#errornote").hide();
+              $("#submitButton").hide();
+              $("#feedbackText").hide();
+              console.log('success', data)
+            },
+            // log error message in our console if an error occurs
+            error: function(errMsg) {
+              $("#thankyou").hide();
+              $("#errornote").show();
+              console.log("got an error", errMsg)
             }
         });
-      });
-
-      $("#submit").click(function(){
-        $("#contactForm1").hide();
-      });
-      $("#submit").click(function(){
-        $("#thankyou").show();
-      });
-
+      }
     </script>
 
     <script async type="text/javascript" src="../js/bulma.js"></script>
