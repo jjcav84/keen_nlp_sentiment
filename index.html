@@ -2,18 +2,16 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jorge Cano</title>
-    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <!-- Bulma Version 0.7.4-->
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
-
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jorge Cano</title>
+  <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
@@ -41,7 +39,7 @@
                                     <span>Home</span>
                                 </a>
                             </span>
-
+                            
                             <span class="navbar-item">
                                 <a class="button is-white is-outlined" href="https://keen.io/docs/">
                                     <span class="icon">
@@ -62,7 +60,7 @@
                     </div>
                 </div>
             </nav>
-            </div>
+        </div>
 
             <div class="hero-body">
                 <div class="container has-text-centered">
@@ -109,7 +107,7 @@
 
       $('#submitButton').click(function(){ SubmitFeedback(); return false; });
 
-      // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
+        // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
       var SubmitFeedback = function() {
         $.ajax({
             type: "POST",
@@ -117,7 +115,7 @@
             data: JSON.stringify({ review_text: $('#feedbackText').val() }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            // log a success if it sends as expected
+            // log a success if it sends as expected and display message in markup
             success: function(data){
               $("#thankyou").show();
               $("#errornote").hide();
@@ -125,7 +123,7 @@
               $("#feedbackText").hide();
               console.log('success', data)
             },
-            // log error message in our console if an error occurs
+            // log error message in our console if an error occurs and display message in markup
             error: function(errMsg) {
               $("#thankyou").hide();
               $("#errornote").show();
