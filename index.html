@@ -111,7 +111,7 @@
       var SubmitFeedback = function() {
         $.ajax({
             type: "POST",
-            url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1 ",
+            url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1",
             data: JSON.stringify({ review_text: $('#feedbackText').val() }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
