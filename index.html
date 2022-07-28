@@ -116,26 +116,10 @@
         </div>
     </section>
     <script type="text/javascript">
-        // Keen Auto Collector
-        /* (function (name, path, ctx) { ctx[name] = ctx[name] || { ready: function (fn) { var h = document.getElementsByTagName('head')[0], s = document.createElement('script'), w = window, loaded; s.onload = s.onerror = s.onreadystatechange = function () { if ((s.readyState && !(/^c|loade/.test(s.readyState))) || loaded) { return } s.onload = s.onreadystatechange = null; loaded = 1; ctx[name].ready(fn) }; s.async = 1; s.src = path; h.parentNode.insertBefore(s, h) } } })
-             ('KeenTracking', 'https://cdn.jsdelivr.net/npm/keen-tracking@4/dist/keen-tracking.min.js', this);
-         KeenTracking.ready(function () {
-             const client = new KeenTracking({
-                 projectId: '5dfc6cd4c9e77c000170c391',
-                 writeKey: 'CABE4DB6C2AF48074BCFBF7B62611F8E160C49BBA7AF5A0834A142033117190D9C1D23F282906069597101CFCE927E62EEDCFD55A9350B24AC49B454FA61E74F86CAD29A9B11D1366ADEEDECADB4DE97DCF1958CE485B17EA6C94B63E0546C73'
-             });
-             // Record events automatically
-             client.initAutoTracking();
-         });*/
-
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
-
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
         var SubmitFeedback = function () {
             $.ajax({
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
                 type: "POST",
                 url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1",
                 data: JSON.stringify({ review_text: $('#feedbackText').val() }),
@@ -158,7 +142,6 @@
             });
         }
     </script>
-
     <!--- <script async type="text/javascript" src="./BulmaJS-master/dist/bulma.js"></script-->
 </body>
 
