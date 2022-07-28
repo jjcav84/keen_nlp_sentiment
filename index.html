@@ -25,11 +25,13 @@
         // Enabling the debug mode flag is useful during implementation,
         // but it's recommended you remove it for production
         mixpanel.init('b63d1406117667b9b275d70c9839869b', { debug: true });
+        mixpanel.track_pageview();
+        mixpanel.track('Left page', {'duration_seconds': 35}, {transport: 'sendBeacon'});
         mixpanel.track_links('#logo', 'Clicked logo Link');
         mixpanel.track_links('#home', 'Clicked home Link');
         mixpanel.track_links('#docs', 'Clicked docs Link');
         mixpanel.track_links('#source', 'Clicked source Link');
-        mixpanel.track_forms('#feedbackText', 'feedback text');
+        mixpanel.track_forms('#submitButton', 'Clicked submit');
    // mixpanel.track('#submitButton', 'Clicked submit button');
     </script>
 </head>
