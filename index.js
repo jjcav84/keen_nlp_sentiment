@@ -11,10 +11,10 @@ const language = new Language.LanguageServiceClient();
 // Post Message, Score, Magnitude to Keen
 var Mixpanel = require('mixpanel');
 // Create your Client Credentials which can be found inside of your 'Access' tab
-const mixpanel = Mixpanel.init('b63d1406117667b9b275d70c9839869b', {
+var mixpanel = Mixpanel.init('b63d1406117667b9b275d70c9839869b', {
   protocol: 'http',
 });
-const trackAsync = util.promisify(mixpanel.track);
+var trackAsync = util.promisify(mixpanel.track);
 exports.anthemcNLP = (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   /* this handles CORS preflight check */
