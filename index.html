@@ -120,7 +120,7 @@
         mixpanel.track_links('#docs', 'Clicked docs Link');
         mixpanel.track_links('#source', 'Clicked source Link');
         mixpanel.track_forms('#feedbackText', 'feedback text');
-        mixpanel.track('#submitButton', 'Clicked submit button');
+       // mixpanel.track('#submitButton', 'Clicked submit button');
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
 
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
