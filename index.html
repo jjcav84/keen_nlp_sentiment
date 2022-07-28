@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,14 +12,13 @@
     <!--   <link rel="stylesheet" type="text/css" href="css/stylesheet.css"> -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-
 <body>
     <section class="hero is-info is-fullheight">
         <div class="hero-head">
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a class="navbar-item" href="https://mixpanel.com/">
+                        <a class="navbar-item" id="logo" href="https://mixpanel.com/">
                             <img src="mixpanel-logo.png" alt="Logo">
                         </a>
                         <span class="navbar-burger burger" data-target="navbarMenu">
@@ -32,7 +30,7 @@
                     <div id="navbarMenu" class="navbar-menu">
                         <div class="navbar-end">
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="https://mixpanel.com/">
+                                <a class="button is-white is-outlined" id="home" href="https://mixpanel.com/">
                                     <span class="icon">
                                         <i class="fa fa-home"></i>
                                     </span>
@@ -41,7 +39,7 @@
                             </span>
 
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="https://developer.mixpanel.com">
+                                <a class="button is-white is-outlined" id="docs" href="https://developer.mixpanel.com">
                                     <span class="icon">
                                         <i class="fa fa-book"></i>
                                     </span>
@@ -49,7 +47,7 @@
                                 </a>
                             </span>
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined"
+                                <a class="button is-white is-outlined" id="source"
                                     href="https://github.com/jjcav84/keen_nlp_sentiment">
                                     <span class="icon">
                                         <i class="fa fa-github"></i>
@@ -62,7 +60,6 @@
                 </div>
             </nav>
         </div>
-
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-6 is-offset-3">
@@ -73,7 +70,6 @@
                         Submit some feedback in the box below
                     </h2>
                     <div class="box">
-
                         <div class="field is-grouped">
                             <p class="control is-expanded">
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
@@ -94,9 +90,7 @@
                 </div>
             </div>
         </div>
-
     </section>
-
     <script type="text/javascript">
         // Keen Auto Collector
         /* (function (name, path, ctx) { ctx[name] = ctx[name] || { ready: function (fn) { var h = document.getElementsByTagName('head')[0], s = document.createElement('script'), w = window, loaded; s.onload = s.onerror = s.onreadystatechange = function () { if ((s.readyState && !(/^c|loade/.test(s.readyState))) || loaded) { return } s.onload = s.onreadystatechange = null; loaded = 1; ctx[name].ready(fn) }; s.async = 1; s.src = path; h.parentNode.insertBefore(s, h) } } })
@@ -118,12 +112,15 @@
                     MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g)
             }
         })(document, window.mixpanel || []);
-
         // Enabling the debug mode flag is useful during implementation,
         // but it's recommended you remove it for production
         mixpanel.init('b63d1406117667b9b275d70c9839869b', { debug: true });
-        mixpanel.track_forms('#submitButton', 'Clicked submit button');
-
+        mixpanel.track_links('#logo', 'Clicked logo Link');
+        mixpanel.track_links('#home', 'Clicked home Link');
+        mixpanel.track_links('#docs', 'Clicked docs Link');
+        mixpanel.track_links('#source', 'Clicked source Link');
+        mixpanel.track_form('#feedbackText', 'feedback text');
+        mixpanel.track('#submitButton', 'Clicked submit button');
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
 
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
