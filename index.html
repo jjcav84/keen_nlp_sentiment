@@ -13,7 +13,7 @@
     <!--   <link rel="stylesheet" type="text/css" href="css/stylesheet.css"> -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
-        // Implement Mixpanel tracking tag
+        //  Mixpanel tracking tag
         (function (f, b) {
             if (!b.__SV) {
                 var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) {
@@ -23,8 +23,7 @@
                     MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g)
             }
         })(document, window.mixpanel || []);
-        // Enabling the debug mode flag is useful during implementation,
-        // but it's recommended you remove it for production
+        // Initialize mixpanel and implement event tracking for link and form submit clicks
         mixpanel.init('b63d1406117667b9b275d70c9839869b');
         mixpanel.track('Left page', { 'duration_seconds': 35 }, { transport: 'sendBeacon' });
         mixpanel.track_links('#logo', 'Clicked logo Link', {
@@ -40,7 +39,6 @@
             "referrer": document.referrer
         });
         mixpanel.track_forms('#submitButton', 'Clicked submit');
-   // mixpanel.track('#submitButton', 'Clicked submit button');
     </script>
 </head>
 
@@ -71,7 +69,6 @@
                                     <span>Home</span>
                                 </a>
                             </span>
-
                             <span class="navbar-item">
                                 <a class="button is-white is-outlined" id="docs" href="https://developer.mixpanel.com">
                                     <span class="icon">
