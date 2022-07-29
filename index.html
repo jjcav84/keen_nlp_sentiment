@@ -128,6 +128,7 @@
     <script type="text/javascript">
         // jQuery function to submit feedback button
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
+
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
         var SubmitFeedback = function () {
             $.ajax({
