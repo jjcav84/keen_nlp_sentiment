@@ -38,7 +38,7 @@
         mixpanel.track_links('#source', 'Clicked source Link', {
             "referrer": document.referrer
         });*/
-        mixpanel.track_links("#submit a", "click submit button");
+        mixpanel.track_links("a#submitButton", "click submit button");
        // mixpanel.track_links("#submitButton a", "click submitButton button");
     </script>
 </head>
@@ -97,19 +97,19 @@
             <div class="container has-text-centered">
                 <div class="column is-6 is-offset-3">
                     <h1 class="title">
-                        Mixpanel Tracking Tutorial: <br>Feedback Forms and Natural Language Processing
+                        Keen Tutorial: <br>Feedback Forms and Natural Language Processing
                     </h1>
                     <h2 class="subtitle">
                         Submit some feedback in the box below
                     </h2>
-                    <!-- Markup for form component-->
                     <div class="box">
-                        <div id="submit" class="field is-grouped">
+
+                        <div class="field is-grouped">
                             <p class="control is-expanded">
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
                             </p>
                             <p class="control">
-                                <a id="submitButton" class="button is-info">
+                                <a id="submitButton" class="button is-info" id="submitButton">
                                     Send Feedback
                                 </a>
                             </p>
