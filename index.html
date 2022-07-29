@@ -26,10 +26,10 @@
         // Initialize mixpanel and implement event tracking for link and form submit clicks
         mixpanel.init('b63d1406117667b9b275d70c9839869b');
         mixpanel.track('Left page', { 'duration_seconds': 35 }, { transport: 'sendBeacon' });
-        mixpanel.track_links('#logo', 'Clicked logo Link', {
-            "referrer": document.referrer
-        });
-        mixpanel.track_links('#home', 'Clicked home Link', {
+        mixpanel.track_links("#nav a", "click nav link", {
+        "referrer": document.referrer
+    });
+        /*mixpanel.track_links('#home', 'Clicked home Link', {
             "referrer": document.referrer
         });
         mixpanel.track_links('#docs', 'Clicked docs Link', {
@@ -37,8 +37,8 @@
         });
         mixpanel.track_links('#source', 'Clicked source Link', {
             "referrer": document.referrer
-        });
-        mixpanel.track_forms('#submitButton', 'Clicked submit');
+        });*/
+        mixpanel.track_links('#submitButton', 'Clicked submit');
     </script>
 </head>
 
@@ -47,7 +47,7 @@
     <section class="hero is-info is-fullheight">
         <div class="hero-head">
             <!-- Markup for navbar component-->
-            <nav class="navbar">
+            <nav class="navbar" id="nav">
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item" id="logo" href="https://mixpanel.com/">
@@ -108,9 +108,9 @@
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
                             </p>
                             <p class="control">
-                                <a id="submitButton" class="button is-info">
+                                <button id="submitButton" class="button is-info">
                                     Send Feedback
-                                </a>
+                                </button>
                             </p>
                         </div>
                         <div id="errornote" style="display:none">
