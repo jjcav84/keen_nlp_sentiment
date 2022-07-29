@@ -39,6 +39,7 @@
             "referrer": document.referrer
         });*/
         mixpanel.track_links("#submit a", "click submit button");
+       // mixpanel.track_links("#submitButton a", "click submitButton button");
     </script>
 </head>
 
@@ -103,11 +104,11 @@
                     </h2>
                     <!-- Markup for form component-->
                     <div class="box">
-                        <div class="field is-grouped">
+                        <div id="submit" class="field is-grouped">
                             <p class="control is-expanded">
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
                             </p>
-                            <p class="control" id="submit">
+                            <p class="control">
                                 <a id="submitButton" class="button is-info">
                                     Send Feedback
                                 </a>
