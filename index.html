@@ -38,7 +38,6 @@
         mixpanel.track_links('#source', 'Clicked source Link', {
             "referrer": document.referrer
         });*/
-        mixpanel.track_links("#submit a", "click submit button");
         mixpanel.track_links("#submitButton a", "click submitButton button");
     </script>
 </head>
@@ -108,13 +107,11 @@
                             <p class="control is-expanded">
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
                             </p>
-                            <div id="submit">
-                                <p class="control">
-                                    <a id="submitButton" class="button is-info">
-                                        Send Feedback
-                                    </a>
-                                </p>
-                            </div>
+                            <p class="control">
+                                <a id="submitButton" class="button is-info">
+                                    Send Feedback
+                                </a>
+                            </p>
                         </div>
                         <div id="errornote" style="display:none">
                             <p>Oops got an error, check your console logs!</p>
