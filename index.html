@@ -38,7 +38,7 @@
         mixpanel.track_links('#source', 'Clicked source Link', {
             "referrer": document.referrer
         });*/
-        mixpanel.track_links("#submitButton", "click submit button");
+        mixpanel.track_links("#submit a", "click submit button");
        // mixpanel.track_links("#submitButton a", "click submitButton button");
     </script>
 </head>
@@ -104,7 +104,7 @@
                     </h2>
                     <div class="box">
 
-                        <div class="field is-grouped">
+                        <div id="submit" class="field is-grouped">
                             <p class="control is-expanded">
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
                             </p>
@@ -137,7 +137,7 @@
                 type: "POST",
                 url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1",
                 data: JSON.stringify({ review_text: $('#feedbackText').val() }),
-                contentType: "application/json; charset=utf-8",
+               // contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 // log a success if it sends as expected and display message in markup
                 success: function (data) {
