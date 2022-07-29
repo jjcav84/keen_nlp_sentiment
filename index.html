@@ -13,6 +13,7 @@
     <!--   <link rel="stylesheet" type="text/css" href="css/stylesheet.css"> -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
+        // Implement Mixpanel tracking tag
         (function (f, b) {
             if (!b.__SV) {
                 var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) {
@@ -24,8 +25,7 @@
         })(document, window.mixpanel || []);
         // Enabling the debug mode flag is useful during implementation,
         // but it's recommended you remove it for production
-        mixpanel.init('b63d1406117667b9b275d70c9839869b', { debug: true });
-        mixpanel.track_pageview();
+        mixpanel.init('b63d1406117667b9b275d70c9839869b');
         mixpanel.track('Left page', { 'duration_seconds': 35 }, { transport: 'sendBeacon' });
         mixpanel.track_links('#logo', 'Clicked logo Link', {
             "referrer": document.referrer
@@ -45,8 +45,10 @@
 </head>
 
 <body>
+    <!-- Markup for Hero head component-->
     <section class="hero is-info is-fullheight">
         <div class="hero-head">
+            <!-- Markup for navbar component-->
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
@@ -92,6 +94,7 @@
                 </div>
             </nav>
         </div>
+        <!-- Markup for Hero body component-->
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-6 is-offset-3">
@@ -101,6 +104,7 @@
                     <h2 class="subtitle">
                         Submit some feedback in the box below
                     </h2>
+                    <!-- Markup for form component-->
                     <div class="box">
                         <div class="field is-grouped">
                             <p class="control is-expanded">
@@ -124,6 +128,7 @@
         </div>
     </section>
     <script type="text/javascript">
+        // jQuery function to submit feedback button
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
         var SubmitFeedback = function () {
@@ -153,7 +158,6 @@
             });
         }
     </script>
-    <!--- <script async type="text/javascript" src="./BulmaJS-master/dist/bulma.js"></script-->
 </body>
 
 </html>
