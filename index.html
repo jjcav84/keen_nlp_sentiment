@@ -27,8 +27,8 @@
         mixpanel.init('b63d1406117667b9b275d70c9839869b');
         mixpanel.track('Left page', { 'duration_seconds': 35 }, { transport: 'sendBeacon' });
         mixpanel.track_links("#nav a", "click nav link", {
-        "referrer": document.referrer
-    });
+            "referrer": document.referrer
+        });
         /*mixpanel.track_links('#home', 'Clicked home Link', {
             "referrer": document.referrer
         });
@@ -38,7 +38,7 @@
         mixpanel.track_links('#source', 'Clicked source Link', {
             "referrer": document.referrer
         });*/
-        mixpanel.track_links('#submitButton', 'Clicked submit');
+        mixpanel.track_forms("#submitButton", "click submit button");
     </script>
 </head>
 
