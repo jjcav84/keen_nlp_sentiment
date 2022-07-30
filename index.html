@@ -117,6 +117,7 @@
         </div>
     </section>
     <script type="text/javascript">
+        $(document).ready(function() {
         // jQuery function to submit feedback button
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
 
@@ -147,6 +148,8 @@
                 }
             });
         }
+        init();
+    });
     </script>
 </body>
 
