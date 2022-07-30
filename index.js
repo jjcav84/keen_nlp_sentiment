@@ -60,9 +60,9 @@ exports.anthemcNLP = (req, res) => {
         magnitude: sentiment.magnitude
       })
         // Handle AJAX success response for trackAsync
-        .then(results => {
-          res.setHeader('Content-Type', 'application/json');
-          res.end(JSON.stringify({ message: "ok" }));
+        .then(() => {
+          // res.setHeader('Content-Type', 'application/json');
+          res.json({ message: "ok" });
           return;
         })
         // Handle AJAX error response for trackAsync
