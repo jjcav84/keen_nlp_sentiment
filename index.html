@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
     <!--   <link rel="stylesheet" type="text/css" href="css/stylesheet.css"> -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="application/javascript">document.interestCohort = null;</script>
     <script>
         //  Mixpanel tracking tag
         (function (f, b) {
@@ -29,7 +30,7 @@
         mixpanel.track_links("#nav a", "click nav link", {
             "referrer": document.referrer
         });
-        mixpanel.track_links("#submitButton", "click submitButton button track links no a element");
+        mixpanel.track_links("#submitButton", "click submit button");
     </script>
 </head>
 
