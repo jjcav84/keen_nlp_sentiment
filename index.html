@@ -26,11 +26,10 @@
         })(document, window.mixpanel || []);
         // Initialize mixpanel and implement event tracking for link and form submit clicks
         mixpanel.init('b63d1406117667b9b275d70c9839869b');
-        mixpanel.track('Left page', { 'duration_seconds': 35 }, { transport: 'sendBeacon' });
         mixpanel.track_links("#nav a", "click nav link", {
             "referrer": document.referrer
         });
-        mixpanel.track_links("#submitButton", "click submit button");
+        mixpanel.track_links("#form a", "click submit button");
     </script>
 </head>
 
@@ -95,12 +94,12 @@
                     </h2>
                     <div class="box">
 
-                        <div id="submit" class="field is-grouped">
+                        <div id="form" class="field is-grouped">
                             <p class="control is-expanded">
                                 <input id="feedbackText" class="input" type="text" placeholder="Enter your feedback...">
                             </p>
                             <p class="control">
-                                <a id="submitButton" class="button is-info">
+                                <a href="#" id="submitButton" class="button is-info" type="button">
                                     Send Feedback
                                 </a>
                             </p>
@@ -117,10 +116,8 @@
         </div>
     </section>
     <script type="text/javascript">
-        $(document).ready(function() {
-        // jQuery function to submit feedback button
+        // jQuery function to submit AJAX request on feedback button click
         $('#submitButton').click(function () { SubmitFeedback(); return false; });
-
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
         var SubmitFeedback = function () {
             $.ajax({
@@ -128,9 +125,10 @@
                     'Content-Type': 'application/json'
                 },
                 type: "POST",
-                url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1",
+                //contentType: "application/json; charset=utf-8",
+                //async: "false",
+                url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1/",
                 data: JSON.stringify({ review_text: $('#feedbackText').val() }),
-                contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 // log a success if it sends as expected and display message in markup
                 success: function (data) {
@@ -148,7 +146,6 @@
                 }
             });
         }
-    });
     </script>
 </body>
 

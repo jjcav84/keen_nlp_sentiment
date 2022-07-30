@@ -12,9 +12,7 @@ const language = new Language.LanguageServiceClient();
 // Post Message, Score, Magnitude to Keen
 var Mixpanel = require('mixpanel');
 // initialize Mixpanel instance with token key and http and https protocols allowed
-var mixpanel = Mixpanel.init('b63d1406117667b9b275d70c9839869b', {
-  protocol: 'http',
-});
+var mixpanel = Mixpanel.init('b63d1406117667b9b275d70c9839869b');
 // wrap mixpanel tracking with a promise for background function to handle async http function req, res objects
 var trackAsync = util.promisify(mixpanel.track);
 exports.anthemcNLP = (req, res) => {
@@ -62,7 +60,7 @@ exports.anthemcNLP = (req, res) => {
         magnitude: sentiment.magnitude
       })
         // Handle AJAX success response for trackAsync
-        .then(() => {
+        .then(result => {
           res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify({ message: "ok" }));
           return;
