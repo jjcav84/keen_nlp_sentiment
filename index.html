@@ -120,15 +120,17 @@
         // Ajax Post Request with feedback for sentiment analysis and magnitude score via Google Cloud Function
         var SubmitFeedback = function () {
             $.ajax({
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                type: "POST",
+
+                crossDomain: "true",
                 //contentType: "application/json; charset=utf-8",
                 //async: "false",
                 url: "https://us-central1-keen-sentiment-analysis.cloudfunctions.net/anthemcNLPFunction1/",
+                type: "POST",
                 data: JSON.stringify({ review_text: $('#feedbackText').val() }),
-                dataType: "json",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                //dataType: "json",
                 // log a success if it sends as expected and display message in markup
                 success: function (data) {
                     $("#thankyou").show();
